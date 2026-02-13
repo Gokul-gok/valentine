@@ -65,19 +65,23 @@
       display: none;
     }
 
-    /* Slideshow */
+    /* Slideshow container */
     .slideshow {
-      margin: 34px 0;
+      margin: 32px 0;
+      background: #fbe7ef;
+      border-radius: 20px;
+      padding: 10px;
     }
 
+    /* IMAGE FIX — NO CROPPING */
     .slideshow img {
       width: 100%;
-      height: 45vh;
-      max-height: 400px;
-      min-height: 280px;
-      object-fit: cover;
-      border-radius: 20px;
-      animation: fadeIn 1s ease;
+      height: auto;
+      max-height: 65vh;
+      object-fit: contain; /* 🔑 KEY FIX */
+      border-radius: 16px;
+      display: block;
+      margin: 0 auto;
     }
 
     .signature {
@@ -147,7 +151,6 @@
       document.querySelector("button").style.display = "none";
     }
 
-    // Slideshow photos
     const photos = [
       "photos/1.jpg",
       "photos/2.jpg",
@@ -161,9 +164,8 @@
       if (!img) return;
       index = (index + 1) % photos.length;
       img.src = photos[index];
-    }, 3000);
+    }, 3500);
 
-    // Floating hearts
     function createHeart() {
       const heart = document.createElement("div");
       heart.className = "heart";
